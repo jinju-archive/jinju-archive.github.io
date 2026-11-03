@@ -70,27 +70,114 @@ GSK = {
   ],
 }
 
+GSK_NOTE = ('Real photos and records come first; where none exist, the video uses AI-generated reenactment illustrations (ChatGPT) with no real faces. '
+            'Licences are as stated on the source pages. Victims are shown only through photos their families or agencies made public.')
+GSK_PROD = ['Korean narration: Google Gemini text-to-speech (voice Leda)', 'Reenactment illustrations: generated with ChatGPT', 'Maps, timelines and title cards: made by Jinju Archive']
+
+C, MX = 'https://commons.wikimedia.org/wiki/File:', 'https://mixkit.co/free-stock-video/'
+PD, ML = 'Public domain', 'Mixkit Stock Video Free License'
+PH = {
+  'slug': 'patty-hearst', 'no': '002', 'title': 'Patty Hearst', 'ko': '패티 허스트',
+  'note': ('Real photos and records come first; mood scenes use Mixkit stock footage, which is illustrative and does not show the actual events. '
+           'Licences are as stated on the source pages.'),
+  'visuals': [  # (what, licence, author, url), in the order of credits.txt
+    ('Hibernia Bank robbery, security camera frame (Donald DeFreeze)', PD, 'FBI', C + 'SLA-DonaldD-Hibernia(300).jpg'),
+    ('Hibernia Bank robbery, security camera frame (April 1974)', PD, 'Closed circuit security camera', C + 'Patty_Hearst_takes_part_in_the_April_1974_Hiberna_bank_raid_with_other_SLA_members.jpg'),
+    ('Hibernia Bank robbery, security camera frame', PD, "Hibernia Bank's security camera", C + 'Hearst-hibernia-yell.jpg'),
+    ('Hibernia Bank robbery, security camera frame', PD, 'Closed circuit security camera', C + 'Patty_Hearst-_Hibernia_bank_robbery.jpg'),
+    ('FBI wanted poster', PD, 'Federal Bureau of Investigation', C + 'Patty_Hearst_FBI_poster.jpg'),
+    ('FBI wanted poster (crop)', PD, 'United States Government, Federal Bureau of Investigation', C + 'Patti_Hearst_et._al._wanted_poster_01.jpg'),
+    ('Stock video: shed in the forest closed with a padlock', ML, 'matthiasgroeneveld', MX + 'shed-in-the-forest-closed-with-a-padlock-2501/'),
+    ('Stock video: street lamps at night', ML, 'jibaroartz', MX + 'street-lamps-at-night-3526/'),
+    ('William Randolph Hearst', PD, 'Harris & Ewing, photographer', C + 'HEARST,_WILLIAM_RANDOLPH_LCCN2016858735.jpg'),
+    ('Randolph A. Hearst (1940)', PD, 'Unknown, dedicated to Bettmann Archive', C + 'Randolph_A._Hearst_1940_(cropped).jpg'),
+    ('Stock video: dancer in the dark, back view', ML, 'edgarfernandez', MX + 'dancer-in-the-dark-back-view-1038/'),
+    ('Stock video: point of view driving across a road', ML, 'marcolopez', MX + 'point-of-view-driving-across-a-road-44650/'),
+    ('Stock video: police car lights flashing', ML, 'Mixkit', MX + 'police-car-lights-flashing-17376/'),
+    ('Symbionese Liberation Army congressional report cover', PD, 'A product of the United States Government', C + 'Symbionese_Liberation_Army_congressional_report_cover_01.jpg'),
+    ('Symbionese Liberation Army flag', PD, 'Wikimedia Commons', C + 'Symbionese_Liberation_Army_flag.png'),
+    ('Donald DeFreeze mugshot (1973)', PD, 'FBI', C + 'Donald_David_DeFreeze_mugshot_1973.jpg'),
+    ('Stock video: flipping through a newspaper', ML, 'mixkit', MX + 'pov-flipping-through-a-newspaper-41192/'),
+    ('Hearst Building, San Francisco (2013)', 'CC BY-SA 3.0', 'Wikimedia Commons', C + 'Hearst_Building,_San_Francisco_(2013)_-_1.JPG'),
+    ('Stock video: young adult reading the newspaper', ML, 'm0de0n', MX + 'young-adult-reading-the-newspaper-34190/'),
+    ('Stock video: man reading the newspaper with a cup of coffee', ML, 'mixkit', MX + 'intellectual-man-reading-the-newspaper-with-a-cup-of-coffee-41191/'),
+    ('Stock video: candle lighting in the dark', ML, 'edgarfernandez', MX + 'candle-lighting-in-the-dark-3458/'),
+    ('Stock video: reel-to-reel tape recorder, close-up', ML, 'mixkit', MX + 'the-camera-gets-closer-to-vintage-reel-to-reel-tape-recorder-placed-52198/'),
+    ('Stock video: vinyl records and a reel-to-reel tape recorder', ML, 'mixkit', MX + 'the-camera-pans-on-a-vintage-vinyl-records-and-a-52199/'),
+    ('Stock video: blurry lights form a police car', ML, 'ivz', MX + 'blurry-lights-form-a-police-car-47491/'),
+    ('Stock video: a calm street in Paris', ML, 'dubassy', MX + 'a-calm-street-in-paris-4348/'),
+    ('Emily Harris', PD, 'Wikimedia Commons', C + 'Emily_Harris_(SLA).jpg'),
+    ('Stock video: couple getting off a van in a parking lot', ML, 'rubenvelasco', MX + 'romantic-couple-getting-off-a-van-in-a-parking-lot-45380/'),
+    ('Stock video: glass bottle breaking in slow motion', ML, 'Mixkit', MX + 'glass-bottle-breaking-in-slow-motion-28413/'),
+    ('Stock video: road trip aboard a van', ML, 'mixkit', MX + 'road-trip-as-a-couple-aboard-a-van-41582/'),
+    ('Stock video: car driving on an empty country road', ML, 'Mixkit', MX + 'car-driving-on-an-empty-road-in-the-countryside-28777/'),
+    ('Stock video: wood burning in a fireplace', ML, 'kovalrk', MX + 'wood-burning-in-a-fireplace-1242/'),
+    ('Stock video: people walking in front of a building', ML, 'dubassy', MX + 'people-walking-in-front-of-a-building-4169/'),
+    ('Patty Hearst (1975)', PD, 'Wikimedia Commons', C + '1975_Patty_Hearst.jpg'),
+    ('Patty Hearst booking photo', PD, 'Wikimedia Commons', C + 'PattyHearstmug.jpg'),
+    ('Patty Hearst escorted by marshals', 'CC BY 4.0', 'Wikimedia Commons', C + 'Patty_Hearst_escorted_by_marshals.jpg'),
+    ('Stock video: judge pronounces sentence in court', ML, 'ivz', MX + 'judge-pronounces-sentence-in-court-46820/'),
+    ('F. Lee Bailey', 'CC BY-SA 2.0', 'Wikimedia Commons', C + 'F._Lee_Bailey.jpg'),
+    ('Stock video: judge shows money on table', ML, 'ivz', MX + 'judge-shows-money-on-table-46117/'),
+    ('Jimmy Carter, official portrait (1977)', PD, 'The White House', C + 'Official_Portrait_of_Jimmy_Carter_(1977).jpg'),
+    ('Patty Hearst and Bernard Shaw (1979)', 'CC BY 4.0', 'Rick Meyer, Los Angeles Times', C + 'Patty_Hearst_and_Bernard_Shaw,_1979.jpg'),
+    ('Bill Clinton, official portrait', PD, 'Wikimedia Commons', C + 'Official_Portrait_of_President_William_Jefferson_Clinton_(3x4_cropped).jpg'),
+    ('Stock video: houses in the suburbs from above', ML, 'marcolopez', MX + 'view-from-above-to-houses-in-the-suburbs-3420/'),
+  ],
+  'facts': [
+    ('Wikipedia: Patty Hearst (overview, cross-checked)', 'https://en.wikipedia.org/wiki/Patty_Hearst'),
+    ('History.com: Patty Hearst kidnapped', 'https://www.history.com/this-day-in-history/february-4/patty-hearst-kidnapped'),
+    ('Britannica: Patty Hearst', 'https://www.britannica.com/biography/Patty-Hearst'),
+    ('Encyclopedia.com: Hearst, Patty', 'https://encyclopedia.com/law/encyclopedias-almanacs-transcripts-and-maps/hearst-patty'),
+    ('Famous Trials: chronology', 'https://famous-trials.com/pattyhearst/2198-chronology'),
+    ('Crime Magazine: LAPD raid leaves six SLA members dead (1974)', 'https://crimemagazine.com/lapd-raid-leaves-six-sla-members-dead-1974'),
+    ('PBS NewsHour: Jeffrey Toobin on the Patty Hearst story', 'https://www.pbs.org/newshour/show/victim-becomes-criminal-fresh-look-story-patty-hearst'),
+    ('Wikipedia: Sara Jane Olson', 'https://en.wikipedia.org/wiki/Sara_Jane_Olson'),
+    ('PBS American Experience: Myrna Opsahl', 'https://www.pbs.org/wgbh/americanexperience/features/guerrilla-myrna-opsahl'),
+    ('UPI (2002): Hearst ready for SLA trial showdown', 'https://www.upi.com/Top_News/2002/01/23/Hearst-ready-for-SLA-trial-showdown/66661011818959/'),
+    ('KQED: 40 years ago today, Patty Hearst kidnapped in Berkeley', 'https://www.kqed.org/news/125209/40-years-ago-today-patty-hearst-kidnapped-in-berkeley'),
+    ('Crime+Investigation: the arrest', 'https://www.crimeandinvestigation.co.uk/crime-files/sla-kidnap-of-patty-hearst/arrest'),
+    ('Wikipedia: Symbionese Liberation Army', 'https://en.wikipedia.org/wiki/Symbionese_Liberation_Army'),
+    ('Slate (2002): What is the Symbionese Liberation Army?', 'https://www.slate.com/articles/news_and_politics/explainer/2002/01/what_is_the_symbionese_liberation_army.html'),
+    ('PBS American Experience: rise and fall of the SLA', 'https://www.pbs.org/wgbh/americanexperience/features/guerrilla-rise-and-fall-symbionese-liberation-army/'),
+    ('The Michigan Daily archive (trial coverage)', 'https://digital.bentley.umich.edu/midaily/mdp.39015071754548/576'),
+    ('UC Berkeley Library digital collections (trial coverage)', 'https://digicoll.lib.berkeley.edu/record/117527'),
+    ('SF State DIVA: KPIX film after the Hibernia robbery', 'https://diva.sfsu.edu/bundles/239874'),
+    ('CBS LA: SWAT officers on the biggest shootout in LA history', 'https://www.cbsnews.com/losangeles/news/swat-officers-talk-exclusively-to-cbs2s-pat-harvey-about-biggest-shootout-in-las-history/'),
+    ('CBS SF: husband of Patty Hearst dies at 68', 'https://cbsnews.com/sanfrancisco/news/husband-of-patty-hearst-dies-at-68'),
+  ],
+  'prod': [  # raw HTML, written here
+    'Korean narration: AI voice',
+    'Mood scenes: Mixkit stock footage, illustrative only',
+    'Music: "Lightless Dawn" by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons: By Attribution 4.0</a>',
+    'Maps, timelines and title cards: made by Jinju Archive',
+  ],
+}
+
 def episode(ep):
     rows = []
-    for c in json.load(open(ep['commons'])):
+    for c in (json.load(open(ep['commons'])) if 'commons' in ep else []):
         f = c['file']; lic, credit, title = c['license'], c['artist'] or c['credit'], 'File:' + f
         if f in ep['fill']: lic, credit, title = ep['fill'][f]
         url = 'https://commons.wikimedia.org/wiki/' + urllib.parse.quote(title.replace(' ', '_'))
         rows.append(f'<tr><td>{E(ep["what"].get(f, f))}</td><td>{E(lic)}</td><td>{E(credit)}</td><td class="f"><a href="{url}">{E(title[5:])}</a></td></tr>')
-    for what, lic, url in ep['other']:
+    for what, lic, credit, url in ep.get('visuals', []):
+        name = urllib.parse.unquote(url.split('File:')[1]).replace('_', ' ') if 'File:' in url else url.split('/')[2]
+        rows.append(f'<tr><td>{E(what)}</td><td>{E(lic)}</td><td>{E(credit)}</td><td class="f"><a href="{E(url)}">{E(name)}</a></td></tr>')
+    for what, lic, url in ep.get('other', []):
         rows.append(f'<tr><td>{E(what)}</td><td>{E(lic)}</td><td></td><td class="f"><a href="{url}">{E(url.split("/")[2])}</a></td></tr>')
     facts = ''.join(f'<li><a href="{u}">{E(t)}</a></li>' for t, u in ep['facts'])
-    body = (f'<h2>Photos, documents and footage</h2><p class="note">Real photos and records come first; where none exist, the video uses AI-generated reenactment illustrations (ChatGPT) with no real faces. '
-            f'Licences are as stated on the source pages. Victims are shown only through photos their families or agencies made public.</p>'
+    prod = ''.join(f'<li>{p}</li>' for p in ep.get('prod', GSK_PROD))
+    body = (f'<h2>Photos, documents and footage</h2><p class="note">{E(ep.get("note", GSK_NOTE))}</p>'
             f'<table><thead><tr><th>Shown</th><th>Licence</th><th>Author / source</th><th>Source page</th></tr></thead><tbody>{"".join(rows)}</tbody></table>'
             f'<h2>Fact sources</h2><p class="note">Facts in the narration were cross-checked against at least two sources wherever possible; a few details rest on a single report. Where sources disagree, the narration uses the safer wording.</p><ul>{facts}</ul>'
-            f'<h2>Production</h2><ul><li>Korean narration: Google Gemini text-to-speech (voice Leda)</li><li>Reenactment illustrations: generated with ChatGPT</li><li>Maps, timelines and title cards: made by Jinju Archive</li></ul>')
+            f'<h2>Production</h2><ul>{prod}</ul>')
     os.makedirs(ep['slug'], exist_ok=True)
     open(os.path.join(ep['slug'], 'index.html'), 'w', encoding='utf-8').write(
         page(f'{ep["no"]} {ep["title"]}', 'JINJU ARCHIVE · SOURCES', f'{ep["ko"]} · 출처와 자료 목록', body))
     return f'<li><a href="{ep["slug"]}/">{E(ep["no"])} {E(ep["title"])}</a> · {E(ep["ko"])}</li>'
 
-items = episode(GSK)
+items = ''.join(episode(ep) for ep in (GSK, PH))
 open('index.html', 'w', encoding='utf-8').write(page('Jinju Archive', 'SOURCES', '진주 아카이브 영상의 출처와 자료 목록',
     f'<h2>Episodes</h2><ul>{items}</ul><p class="note">Each page lists the photos, documents, footage and articles used in that video.</p>'))
 print('built')
