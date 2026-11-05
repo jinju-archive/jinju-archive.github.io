@@ -154,6 +154,38 @@ PH = {
   ],
 }
 
+HS = {
+  'slug': 'robert-hanssen', 'no': '003', 'title': 'Robert Hanssen', 'ko': '로버트 핸슨',
+  'note': ('Real photos, FBI evidence photos and court records come first; news stills (CBS 60 Minutes, press photos) are used for commentary. '
+           'Mood scenes use Mixkit stock footage, which is illustrative and does not show the actual events. Licences are as stated on the source pages.'),
+  'visuals': [[w, l.replace('Press photo, used for commentary', 'Used for commentary') , a, u] for w, l, a, u in json.load(open('hs_visuals.json', encoding='utf-8'))],
+  'facts': [
+    ('FBI affidavit in support of the criminal complaint, U.S. v. Robert Philip Hanssen (2001)', 'https://www.fbi.gov/file-repository/counterintelligence/hanssen-affidavit.pdf'),
+    ('U.S. DOJ Office of the Inspector General: review of the FBI and Robert Hanssen (2003)', 'https://oig.justice.gov/special/0308/index.htm'),
+    ('Commission for the Review of FBI Security Programs (Webster report, 2002)', 'https://irp.fas.org/agency/doj/fbi/websterreport.html'),
+    ('FAS: Hanssen case photos and documents', 'https://irp.fas.org/ops/ci/hanssenphotos.htm'),
+    ('CBS News 60 Minutes: Robert Hanssen (2001)', 'https://www.youtube.com/watch?v=FYWZczIUJaI'),
+    ('CBS News: To Catch a Spy (Brian Kelley, 2003)', 'https://www.cbsnews.com/news/to-catch-a-spy-21-08-2003/'),
+    ('Wikipedia: Robert Hanssen (overview, cross-checked)', 'https://en.wikipedia.org/wiki/Robert_Hanssen'),
+    ('Wikipedia: Brian Kelley (CIA officer)', 'https://en.wikipedia.org/wiki/Brian_Kelley_(CIA_officer)'),
+    ('Wikipedia: Boris Yuzhin', 'https://en.wikipedia.org/wiki/Boris_Yuzhin'),
+    ("Wikipedia: Eric O'Neill", 'https://en.wikipedia.org/wiki/Eric_O%27Neill'),
+    ("International Spy Museum: Robert Hanssen's PalmPilot", 'https://www.spymuseum.org/exhibition-experiences/about-the-collection/collection-highlights/robert-hanssen-s-palmpilot/'),
+    ('ABC News: Spycatcher, bringing down Robert Hanssen', 'https://abcnews.go.com/2020/story?id=123776'),
+    ('Washington Post (2001): book says FBI was told in 1990 Hanssen might be a spy', 'https://www.washingtonpost.com/archive/politics/2001/12/16/book-says-fbi-was-told-in-90-hanssen-might-be-spy/bf02236d-7b30-4763-b800-59d8adb5906e/'),
+    ('The Harvard Crimson (2003): Opening the doors of Opus Dei', 'https://www.thecrimson.com/article/2003/4/10/opening-the-doors-of-opus-dei/'),
+    ('Washington Times (2011): Brian Kelley, veteran counterspy, dies at 68', 'https://m.washingtontimes.com/news/2011/sep/20/brian-kelley-veteran-counterspy-dies-at-68/'),
+    ('Tampa Bay Times (2001): a spy tells of life in shadows (Boris Yuzhin)', 'https://www.tampabay.com/archive/2001/06/09/danger-deceit-a-spy-tells-of-life-in-shadows/'),
+  ],
+  'prod': [
+    'Korean narration: AI voice; English subtitles translated by Jinju Archive',
+    'Mood scenes: Mixkit stock footage, illustrative only',
+    'Outro illustration and thumbnail: generated with ChatGPT (thumbnail uses the real FBI portrait and booking photo)',
+    'Music: "Lightless Dawn" by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons: By Attribution 4.0</a>',
+    'Timelines, maps and title cards: made by Jinju Archive',
+  ],
+}
+
 def episode(ep):
     rows = []
     for c in (json.load(open(ep['commons'])) if 'commons' in ep else []):
@@ -177,7 +209,7 @@ def episode(ep):
         page(f'{ep["no"]} {ep["title"]}', 'JINJU ARCHIVE · SOURCES', f'{ep["ko"]} · 출처와 자료 목록', body))
     return f'<li><a href="{ep["slug"]}/">{E(ep["no"])} {E(ep["title"])}</a> · {E(ep["ko"])}</li>'
 
-items = ''.join(episode(ep) for ep in (GSK, PH))
+items = ''.join(episode(ep) for ep in (GSK, PH, HS))
 open('index.html', 'w', encoding='utf-8').write(page('Jinju Archive', 'SOURCES', '진주 아카이브 영상의 출처와 자료 목록',
     f'<h2>Episodes</h2><ul>{items}</ul><p class="note">Each page lists the photos, documents, footage and articles used in that video.</p>'))
 print('built')
