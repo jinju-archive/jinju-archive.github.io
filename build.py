@@ -186,6 +186,40 @@ HS = {
   ],
 }
 
+ET = {
+  'slug': 'emmett-till', 'no': '004', 'title': 'Emmett Till', 'ko': '에밋 틸',
+  'note': ('Real photos and documents come first: 1955 Jet magazine photos (public domain, copyright never renewed), the FBI 2006 report and '
+           'U.S. government photos. Name tags were added to two photos. Mood scenes use Mixkit stock footage, which is illustrative and does not show the actual events. '
+           'Licences are as stated on the source pages.'),
+  'visuals': json.load(open('et_visuals.json', encoding='utf-8')),
+  'facts': [
+    ('FBI Prosecutive Report of Investigation Concerning Emmett Till (2006), FBI Vault', 'https://vault.fbi.gov/Emmett%20Till%20'),
+    ('PBS American Experience: The Murder of Emmett Till, timeline', 'https://www.pbs.org/wgbh/americanexperience/features/till-timeline/'),
+    ('PBS American Experience: The trial of J.W. Milam and Roy Bryant', 'https://www.pbs.org/wgbh/americanexperience/features/emmett-trial-jw-milam-and-roy-bryant'),
+    ('PBS American Experience: Roy and Carolyn Bryant and J.W. Milam', 'https://www.pbs.org/wgbh/americanexperience/features/emmett-biography-roy-carolyn-bryant-and-jw-milam'),
+    ('PBS American Experience: Moses and Elizabeth Wright', 'https://www.pbs.org/wgbh/americanexperience/features/emmett-biography-moses-and-elizabeth-wright'),
+    ('PBS American Experience: Sheriff Clarence Strider', 'https://www.pbs.org/wgbh/americanexperience/features/emmett-biography-sheriff-clarence-strider'),
+    ('Famous Trials (UMKC Law): the abduction', 'https://famous-trials.com/emmetttill/1754-abduction'),
+    ('Mississippi Today (2024): Moses Wright identified Emmett Till\'s killers', 'https://mississippitoday.org/2024/09/21/on-this-day-in-1955-moses-wright-identified-emmett-till-killers-2/'),
+    ('Emmett Till Interpretive Center: Till app', 'https://tillapp.emmett-till.org/items/show/3'),
+    ('AP via KSAT (2022): 1955 warrant in Emmett Till case found', 'https://www.ksat.com/news/national/2022/06/29/1955-warrant-in-emmett-till-case-found-family-seeks-arrest/'),
+    ('Axios (2022): grand jury declines to indict Carolyn Bryant Donham', 'https://www.axios.com/2022/08/09/emmett-till-accuser-grand-jury'),
+    ('AP via KAXE (2023): Carolyn Bryant Donham dies at 88', 'https://www.kaxe.org/news/2023-04-27/carolyn-bryant-donham-who-accused-emmett-till-before-he-was-lynched-dies-at-age-88'),
+    ('Zinn Education Project: Rosa Parks and Emmett Till', 'https://www.zinnedproject.org/news/tdih/rosa-parks-emmett-till/'),
+    ('Smithsonian Magazine (2009): museum to receive Emmett Till\'s casket', 'https://www.smithsonianmag.com/smithsonian-institution/african-american-history-museum-to-receive-emmett-tills-casket-15807840/'),
+    ('The Root: Emmett Till memorial, vandalized for more than 10 years, is now bulletproof', 'https://www.theroot.com/emmett-till-memorial-marred-by-vandalism-for-more-than-10-years-is-now-bullet-proof'),
+    ('The Root (2017): Simeon Wright dies at 74', 'https://www.theroot.com/simeon-wright-cousin-who-witnessed-emmett-tills-kidnap-1799939564'),
+    ('Wikipedia: Emmett Till (overview, cross-checked)', 'https://en.wikipedia.org/wiki/Emmett_Till'),
+  ],
+  'prod': [
+    'Korean narration: AI voice; English subtitles translated by Jinju Archive',
+    'Mood scenes: Mixkit stock footage, illustrative only',
+    'Verdict card: a newspaper-style graphic made by Jinju Archive, not a real front page',
+    'Outro illustration: generated with ChatGPT',
+    'Music: "Lightless Dawn" by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons: By Attribution 4.0</a>',
+  ],
+}
+
 def episode(ep):
     rows = []
     for c in (json.load(open(ep['commons'])) if 'commons' in ep else []):
@@ -209,7 +243,7 @@ def episode(ep):
         page(f'{ep["no"]} {ep["title"]}', 'JINJU ARCHIVE · SOURCES', f'{ep["ko"]} · 출처와 자료 목록', body))
     return f'<li><a href="{ep["slug"]}/">{E(ep["no"])} {E(ep["title"])}</a> · {E(ep["ko"])}</li>'
 
-items = ''.join(episode(ep) for ep in (GSK, PH, HS))
+items = ''.join(episode(ep) for ep in (GSK, PH, HS, ET))
 open('index.html', 'w', encoding='utf-8').write(page('Jinju Archive', 'SOURCES', '진주 아카이브 영상의 출처와 자료 목록',
     f'<h2>Episodes</h2><ul>{items}</ul><p class="note">Each page lists the photos, documents, footage and articles used in that video.</p>'))
 print('built')
