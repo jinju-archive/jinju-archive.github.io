@@ -220,6 +220,43 @@ ET = {
   ],
 }
 
+AZ = {
+  'slug': 'azaria-chamberlain', 'no': '005', 'title': 'Azaria Chamberlain', 'ko': '아자리아 체임벌린',
+  'note': ('Real photos, court and inquiry documents, the 1986 ABC news bulletin and Canberra Times pages (via Trove) come first. '
+           'Newspaper pages, Chamberlain family photos and National Museum of Australia images are used for news reporting and commentary; '
+           'two court buildings are present-day stand-ins. Mood scenes use Mixkit stock footage, which is illustrative and does not show the actual events. '
+           'Licences are as stated on the source pages.'),
+  'visuals': json.load(open('az_visuals.json', encoding='utf-8')),
+  'facts': [
+    ('NT Coroner, Inquest into the death of Azaria Chantel Loren Chamberlain [2012] NTMC 020', 'https://localcourt.nt.gov.au/sites/default/files/decisions/2012NTMC020.htm'),
+    ('Royal Commission of Inquiry into Chamberlain Convictions (Morling, 1987), chapter summaries by Dr Robert N. Moles, part 1', 'http://www.netk.net.au/NT/NT18.asp'),
+    ('Royal Commission (Morling, 1987), chapter summaries, part 2', 'http://www.netk.net.au/NT/NT19.asp'),
+    ('NT Government: Morling report appendices', 'https://cmsexternal.nt.gov.au/__data/assets/pdf_file/0005/209057/azaria-hamberlain-appendix-av-web.pdf'),
+    ('National Museum of Australia: Defining Moments, Azaria Chamberlain inquest', 'https://www.nma.gov.au/defining-moments/resources/azaria-chamberlain-inquest'),
+    ("National Museum of Australia: Azaria Chamberlain's dress", 'https://www.nma.gov.au/explore/collection/highlights/azaria-chamberlain-dress'),
+    ('National Museum of Australia: Chamberlain trial drawings', 'https://www.nma.gov.au/explore/collection/highlights/chamberlain-trial-drawings'),
+    ('Sydney Morning Herald (from The Age, 1982): Azaria, the trial begins', 'https://www.smh.com.au/traveller/national/from-the-archives-1982-azaria-the-trial-begins-20190904-p52nw5.html'),
+    ('AP via Al Jazeera (2012): coroner finds dingo took Australian baby', 'https://www.aljazeera.com/news/2012/06/12/coroner-finds-dingo-took-australian-baby'),
+    ('SBS/AAP (2010): notes reveal why Chamberlain convicted', 'https://www.sbs.com.au/news/article/notes-reveal-why-chamberlain-convicted/oc1f232qr'),
+    ('SBS/AAP (2017): Michael Chamberlain dies aged 72', 'https://www.sbs.com.au/news/article/michael-chamberlain-dies-aged-72/wg8ari0p5'),
+    ("TIME (2014): Why that 'dingo's got my baby' line isn't funny", 'https://time.com/3537456/dingo-got-my-baby/'),
+    ('Border Mail (2010): yes, a dingo could have killed Azaria', 'https://www.bordermail.com.au/story/892999/yes-a-dingo-could-have-killed-azaria/'),
+    ('Dianne Johnson, From Fairy to Witch, Australian Journal of Cultural Studies (1984)', 'https://freotopia.org/readingroom/serial/AJCS/2.2/Johnson.html'),
+    ('Adventist Record (2023): the case that shocked a nation', 'https://record.adventistchurch.com/2023/09/12/1980-1985-the-case-that-shocked-a-nation/'),
+    ('Lindy Chamberlain-Creighton: rumors and facts', 'https://lindychamberlain.com/rumors-and-facts/'),
+    ('Mamamia (2019): Lindy Chamberlain on her children', 'https://mamamia.com.au/lindy-chamberlain-children'),
+    ('New Idea (2020): Lindy Chamberlain\'s kids', 'https://www.newidea.com.au/news/lindy-chamberlain-kids/'),
+    ('Australian Museum: Dingo', 'https://australian.museum/learn/animals/mammals/dingo/'),
+    ('Wikipedia: Death of Azaria Chamberlain (overview, cross-checked)', 'https://en.wikipedia.org/wiki/Death_of_Azaria_Chamberlain'),
+  ],
+  'prod': [
+    'Korean narration: AI voice; English subtitles translated by Jinju Archive',
+    'Mood scenes: Mixkit stock footage, illustrative only',
+    'Music: "Lightless Dawn" by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons: By Attribution 4.0</a>',
+    'Maps, timelines and title cards: made by Jinju Archive',
+  ],
+}
+
 def episode(ep):
     rows = []
     for c in (json.load(open(ep['commons'])) if 'commons' in ep else []):
@@ -243,7 +280,7 @@ def episode(ep):
         page(f'{ep["no"]} {ep["title"]}', 'JINJU ARCHIVE · SOURCES', f'{ep["ko"]} · 출처와 자료 목록', body))
     return f'<li><a href="{ep["slug"]}/">{E(ep["no"])} {E(ep["title"])}</a> · {E(ep["ko"])}</li>'
 
-items = ''.join(episode(ep) for ep in (GSK, PH, HS, ET))
+items = ''.join(episode(ep) for ep in (GSK, PH, HS, ET, AZ))
 open('index.html', 'w', encoding='utf-8').write(page('Jinju Archive', 'SOURCES', '진주 아카이브 영상의 출처와 자료 목록',
     f'<h2>Episodes</h2><ul>{items}</ul><p class="note">Each page lists the photos, documents, footage and articles used in that video.</p>'))
 print('built')
