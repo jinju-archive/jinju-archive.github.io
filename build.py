@@ -257,6 +257,46 @@ AZ = {
   ],
 }
 
+KP = {
+  'slug': 'natascha-kampusch', 'no': '006', 'title': 'Natascha Kampusch', 'ko': '나타샤 캄푸시',
+  'note': ('Austrian police handout photos (the missing-person portrait and the garage, via press agencies) are used for news reporting and commentary. '
+           'The route down to the cellar is an AI reconstruction made with Google Flow and is labelled RECONSTRUCTION in the video; it does not show the real place. '
+           'Present-day photos of Strasshof and Vienna are Wikimedia Commons images. Mood scenes use Mixkit stock footage, which is illustrative and does not show the actual events. '
+           'Licences are as stated on the source pages.'),
+  'visuals': json.load(open('kp_visuals.json', encoding='utf-8')),
+  'facts': [
+    ('Austrian Parliament, Interior Committee subcommittee: Kommuniqué on the Kampusch case reviews, 243/KOMM XXIV. GP (2012-06-28)', 'https://www.parlament.gv.at/PAKT/VHG/XXIV/KOMM/KOMM_00243/index.shtml'),
+    ('The Guardian (2010): Natascha Kampusch interview, by Jon Ronson', 'http://www.theguardian.com/world/2010/sep/11/natascha-kampusch-interview'),
+    ('Mail & Guardian (2006): Austrian girl found after eight years of captivity', 'https://mg.co.za/article/2006-08-24-austrian-girl-found-after-eight-years-of-captivity'),
+    ('Fox/AP (2006): Austrian girl escaped after 8 years while captor made a cellphone call', 'https://www.foxnews.com/story/austrian-girl-escaped-after-8-years-while-captor-made-a-cellphone-call'),
+    ('UPI (2006): Austrian girl captive 8 years escapes', 'https://www.upi.com/Top_News/2006/08/24/Austrian-girl-captive-8-years-escapes/20641156438479/'),
+    ("BBC News (2006): Austrian girl's eight-year ordeal", 'http://news.bbc.co.uk/2/hi/europe/5285048.stm'),
+    ('Der Standard (2006): 2.7 million watched the Kampusch interview on ORF and RTL', 'https://www.derstandard.at/story/2577892/27-millionen-bei-kampusch-interview-im-orf-und-rtl'),
+    ('Al Jazeera (2006): Austrians still shocked by kidnap story', 'https://www.aljazeera.com/news/2006/9/8/austrians-still-shocked-by-kidnap-story'),
+    ("International Herald Tribune (2006): Natascha Kampusch's open letter", 'https://www.nytimes.com/2006/08/28/world/europe/28iht-web.0828aletter.2617398.html'),
+    ('Irish Times: Police failed to follow leads in kidnapping', 'https://www.irishtimes.com/news/police-failed-to-follow-leads-in-kidnapping-1.1218218'),
+    ('Irish Times: Kampusch kidnapper identified shortly after seizure', 'https://www.irishtimes.com/news/kampusch-kidnapper-identified-shortly-after-seizure-report-1.891964'),
+    ('profil: Kampusch, interior ministry and investigation errors', 'https://www.profil.at/home/kampusch-innenministerium-ermittlungsfehler-275887'),
+    ('ČT24 (2010): Former Kampusch investigator shot himself', 'https://ct24.ceskatelevize.cz/clanek/svet/byvaly-vysetrovatel-pripadu-kampuschove-se-zastrelil-207927'),
+    ('hvg.hu (2010): Holzapfel acquitted', 'https://hvg.hu/vilag/20100830_felmentettek_kampusch_ugy'),
+    ('ABC News (2008): Austrian captive buys house owned by kidnapper', 'https://abcnews.go.com/International/story?id=4871014'),
+    ('Gulf Times (2013): Kampusch kidnapper acted alone, say experts', 'https://gulf-times.com/story/349228/kampusch-kidnapper-acted-alone-say-experts'),
+    ('The Vienna Review (2013): No second kidnapper', 'https://theviennareview.at/archives/2013/no-second-kidnapper'),
+    ('France 24 (2013): Kampusch kidnapper acted alone, FBI inquiry', 'http://www.france24.com/en/20130415-kampusch-kidnapper-acted-alone-fbi-inquiry-priklopil-austria/'),
+    ("Gulf News (2016): Life 'a jail' after kidnap ordeal, Kampusch says 10 years on", 'https://gulfnews.com/amp/story/world%2Feurope%2Flife-a-jail-after-kidnap-ordeal-says-austrian-kampusch-10-years-on-1.1865193'),
+    ("vienna.at (2019): Kampusch's book Cyberneider against online hate", 'https://www.vienna.at/natascha-kampusch-will-mit-neuem-buch-cyberneider-hass-im-netz-bekaempfen/6382051'),
+    ('Wikipedia (de): Entführung von Natascha Kampusch (overview of the evaluation commission reports, cross-checked)', 'https://de.wikipedia.org/wiki/Entf%C3%BChrung_von_Natascha_Kampusch'),
+    ('Wikipedia: Natascha Kampusch (overview, cross-checked)', 'https://en.wikipedia.org/wiki/Natascha_Kampusch'),
+  ],
+  'prod': [
+    'Korean narration: AI voice; English subtitles translated by Jinju Archive',
+    'Mood scenes: Mixkit stock footage, illustrative only',
+    'Cellar route: AI reconstruction (Google Flow), labelled in the video',
+    'Music: "Lightless Dawn" by Kevin MacLeod (<a href="https://incompetech.com">incompetech.com</a>), licensed under <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons: By Attribution 4.0</a>',
+    'Maps, timelines and title cards: made by Jinju Archive',
+  ],
+}
+
 def episode(ep):
     rows = []
     for c in (json.load(open(ep['commons'])) if 'commons' in ep else []):
@@ -280,7 +320,7 @@ def episode(ep):
         page(f'{ep["no"]} {ep["title"]}', 'JINJU ARCHIVE · SOURCES', f'{ep["ko"]} · 출처와 자료 목록', body))
     return f'<li><a href="{ep["slug"]}/">{E(ep["no"])} {E(ep["title"])}</a> · {E(ep["ko"])}</li>'
 
-items = ''.join(episode(ep) for ep in (GSK, PH, HS, ET, AZ))
+items = ''.join(episode(ep) for ep in (GSK, PH, HS, ET, AZ, KP))
 open('index.html', 'w', encoding='utf-8').write(page('Jinju Archive', 'SOURCES', '진주 아카이브 영상의 출처와 자료 목록',
     f'<h2>Episodes</h2><ul>{items}</ul><p class="note">Each page lists the photos, documents, footage and articles used in that video.</p>'))
 print('built')
